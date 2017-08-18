@@ -1,4 +1,4 @@
-class Kth::Alimtalk::CaseSensitiveString < String
+class Kth::Sms::CaseSensitiveString < String
   def downcase
     self
   end
