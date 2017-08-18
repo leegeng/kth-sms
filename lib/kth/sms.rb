@@ -89,6 +89,30 @@ module Kth
         send_get_request request_url
       end
 
+      def sms_test(send_phone, dest_phone, msg_body, options)
+        request_url = "/ppurio_test/1/message_test/sms/#{client_id}"
+        params = {
+          'send_phone' => send_phone,
+          'dest_phone' => dest_phone,
+          'msg_body' => msg_body
+        }
+
+        if options.present?
+          params['send_time'] = options['send_time'].strftime("%Y%m%d%H%M%S") if options['send_time']
+          params['send_name'] = options['send_name'] if options['send_name']
+          params['dest_name'] = options['dest_name'] if options['dest_name']
+          # smsExcel 은 스펙 제외
+        end
+
+        send_post_request request_url, params
+      end
+
+      def report_test(cmid)
+        request_url = "/ppurio_test/1/message_test/report/#{client_id}?cmid=#{cmid}&client_id=#{client_id}"
+
+        send_get_request request_url
+      end
+
       private
 
       def send_post_request(url, params)
