@@ -119,7 +119,7 @@ module Kth
         conn = Faraday.new(BASE_URL)
         res = conn.post do |req|
           req.url url
-          req.headers[::CaseSensitiveString.new('x-waple-authorization')] = key
+          req.headers[Kth::Sms::CaseSensitiveString.new('x-waple-authorization')] = key
           req.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
           req.body = params
         end
@@ -131,7 +131,7 @@ module Kth
         conn = Faraday.new(BASE_URL)
         res = conn.get do |req|
           req.url url
-          req.headers[::CaseSensitiveString.new('x-waple-authorization')] = key
+          req.headers[Kth::Sms::CaseSensitiveString.new('x-waple-authorization')] = key
           req.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
         end
 
