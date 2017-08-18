@@ -1,5 +1,5 @@
 require 'kth/sms/version'
-require 'kth/case_sensitive_string'
+require 'kth/sms/case_sensitive_string'
 
 module Kth
   module Sms
